@@ -45,7 +45,7 @@ A premium cyber simulation platform centralizing multiple cybersecurity labs int
 - Lucide React
 
 **Live Demo:**  
-`https://interac-lab-index.vercel.app`
+https://interac-lab-index.vercel.app
 
 **Source:**  
 `./interac-lab-index`
@@ -71,7 +71,7 @@ A cybersecurity-focused portfolio experience designed to present skills, project
 - TailwindCSS
 
 **Live Demo:**  
-`https://cyber-portfolio-orcin.vercel.app`
+https://cyber-portfolio-orcin.vercel.app
 
 **Source:**  
 `./cyber-portfolio`
