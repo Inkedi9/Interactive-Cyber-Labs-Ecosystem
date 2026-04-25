@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+@keyframes matrixFall {
+  0% {
+    transform: translateY(-10%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(20%);
+    opacity: 0;
+  }
+}
+
+@keyframes scanMove {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+@keyframes loading {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* hide scrollbar clean */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ===== Scrollbar globale ===== */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0b10; /* obsidian dark */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    180deg,
+    rgba(139, 92, 246, 0.6),  /* purple */
+    rgba(34, 211, 238, 0.6)   /* cyan */
+  );
+  border-radius: 999px;
+  border: 2px solid #0a0b10;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    180deg,
+    rgba(139, 92, 246, 0.9),
+    rgba(34, 211, 238, 0.9)
+  );
+}
+
+@keyframes attackGlitchShift {
+  0% {
+    transform: translateX(0);
+    opacity: 0.18;
+  }
+  20% {
+    transform: translateX(-6px);
+    opacity: 0.28;
+  }
+  40% {
+    transform: translateX(4px);
+    opacity: 0.22;
+  }
+  60% {
+    transform: translateX(-3px);
+    opacity: 0.32;
+  }
+  80% {
+    transform: translateX(5px);
+    opacity: 0.2;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 0.18;
+  }
+}
+
+@keyframes attackScanLines {
+  0% {
+    transform: translateY(-8%);
+    opacity: 0.08;
+  }
+  50% {
+    opacity: 0.18;
+  }
+  100% {
+    transform: translateY(8%);
+    opacity: 0.08;
+  }
+}
+
+@keyframes attackFlicker {
+  0%, 100% {
+    opacity: 0.18;
+  }
+  10% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 0.24;
+  }
+  35% {
+    opacity: 0.14;
+  }
+  50% {
+    opacity: 0.26;
+  }
+  65% {
+    opacity: 0.12;
+  }
+  80% {
+    opacity: 0.22;
+  }
+}
+
+.attack-glitch-layer {
+  animation: attackGlitchShift 1.6s infinite linear;
+}
+
+.attack-scan-layer {
+  animation: attackScanLines 2.4s infinite linear;
+}
+
+.attack-flicker-layer {
+  animation: attackFlicker 1.2s infinite linear;
+}

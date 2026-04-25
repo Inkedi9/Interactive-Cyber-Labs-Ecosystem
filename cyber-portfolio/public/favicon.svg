@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <radialGradient id="bgGlow" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="#1e1b4b"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </radialGradient>
+
+    <linearGradient id="neonArrow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d8b4fe"/>
+      <stop offset="50%" stop-color="#a855f7"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </linearGradient>
+
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="64" height="64" rx="14" fill="url(#bgGlow)"/>
+
+  <!-- Contour comme avant -->
+  <rect
+    x="3"
+    y="3"
+    width="58"
+    height="58"
+    rx="12"
+    fill="none"
+    stroke="#a855f7"
+    stroke-width="1.5"
+    opacity="0.6"
+    filter="url(#glow)"
+  />
+
+  <!-- > avec nuance -->
+  <path
+  d="M20 26 L30 32 L20 38"
+  fill="none"
+  stroke="url(#neonArrow)"
+  stroke-width="4"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  filter="url(#glow)"
+/>
+
+  <!-- _ sobre -->
+  <line
+    x1="34"
+    y1="44"
+    x2="42"
+    y2="44"
+    stroke="#60a5fa"
+    stroke-width="3"
+    stroke-linecap="round"
+    filter="url(#glow)"
+  />
+
+  <!-- scan line subtile -->
+  <rect
+    x="10"
+    y="32"
+    width="44"
+    height="1"
+    fill="#a855f7"
+    opacity="0.3"
+  />
+</svg>
