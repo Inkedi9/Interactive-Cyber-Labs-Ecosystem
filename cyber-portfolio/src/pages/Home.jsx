@@ -3,13 +3,11 @@ import RevealOnScroll from "../components/ui/RevealOnScroll";
 import ScanOverlay from "../components/ui/ScanOverlay";
 import Stats from "../components/cards/Stats";
 import GithubCard from "../components/cards/GithubCard";
+import { HERO_CONTENT, PROJECTS } from "../data/siteData";
 
-const terminalLines = [
-    "[OK] SOC Simulator loaded",
-    "[OK] OSINT Investigator loaded",
-    "[OK] Phishing Detection Simulator loaded",
-    "[DEV] Purple Team Lab evolving",
-];
+const terminalLines = PROJECTS.map(
+    (p) => `[${p.status === "Active" ? "OK" : p.status === "Legacy" ? "LEGACY" : "STANDBY"}] ${p.name}`
+);
 
 const badgeBase =
     "inline-flex items-center rounded-full border px-4 py-1.5 text-xs font-medium uppercase tracking-[0.25em] backdrop-blur-xl";
@@ -18,9 +16,9 @@ function PremiumCard({ accent = "purple", badge, title, description, children })
     const accentStyles = {
         purple: {
             wrapper:
-                "hover:border-brand-purple/25 hover:shadow-[0_18px_60px_rgba(139,92,246,0.12)]",
+                "hover:border-brand-red/25 hover:shadow-[0_18px_60px_rgba(230,57,70,0.12)]",
             badge:
-                "border-brand-purple/25 bg-brand-purple/10 text-brand-purpleSoft",
+                "border-brand-red/25 bg-brand-red/10 text-brand-redSoft",
         },
         emerald: {
             wrapper:
@@ -36,7 +34,7 @@ function PremiumCard({ accent = "purple", badge, title, description, children })
         <div
             className={`group relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-8 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 ${styles.wrapper}`}
         >
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.05),rgba(34,211,238,0.03),transparent)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.05),rgba(34,211,238,0.03),transparent)]" />
 
             <div className="relative z-10">
                 <span className={`${badgeBase} ${styles.badge}`}>
@@ -54,6 +52,8 @@ function PremiumCard({ accent = "purple", badge, title, description, children })
 }
 
 export default function Home() {
+    const featuredProject = PROJECTS.find((p) => p.featured) ?? PROJECTS[0];
+
     const [typedText, setTypedText] = useState("");
     const fullText = "Mission: build a strong cyber profile.";
 
@@ -78,26 +78,25 @@ export default function Home() {
             <section className="grid items-center gap-12 lg:grid-cols-2">
                 <RevealOnScroll>
                     <div>
-                        <span className="inline-block rounded-full border border-brand-purple/30 bg-brand-purple/10 px-4 py-1 text-xs uppercase tracking-[0.25em] text-brand-purpleSoft">
+                        <span className="inline-block rounded-full border border-brand-red/30 bg-brand-red/10 px-4 py-1 text-xs uppercase tracking-[0.25em] text-brand-redSoft">
                             Portfolio cybersécurité
                         </span>
 
-                        <h1 className="mt-6 text-5xl font-black tracking-tight text-ui-text md:text-7xl">
-                            Kevin
-                            <span className="mt-2 block bg-gradient-to-r from-brand-purple via-brand-purpleSoft to-brand-cyanSoft bg-clip-text text-transparent">
-                                Cybersécurité • SOC Analyst • Purple Team
+                        <h1 className="mt-6 text-5xl font-black tracking-tight text-ui-text md:text-5xl">
+                            {HERO_CONTENT.name}
+                            <span className="mt-3 block text-2xl font-bold tracking-normal md:text-4xl bg-gradient-to-r from-brand-red via-brand-redSoft to-brand-cyanSoft bg-clip-text text-transparent">
+                                {HERO_CONTENT.title}
                             </span>
                         </h1>
 
                         <p className="mt-6 max-w-2xl text-lg leading-8 text-ui-secondary">
-                            Étudiant passionné par la cybersécurité, je développe des projets pratiques
-                            autour de la détection, de l’investigation, de l’OSINT et de la sécurité web.
+                            {HERO_CONTENT.description}
                         </p>
 
                         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                             <a
                                 href="/projects"
-                                className="inline-flex items-center justify-center rounded-[1.4rem] border border-brand-purple/30 bg-brand-purple/15 px-6 py-4 text-sm font-semibold text-brand-purpleSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-purple/40 hover:bg-brand-purple/20 hover:text-white hover:shadow-glow-purple"
+                                className="inline-flex items-center justify-center rounded-[1.4rem] border border-brand-red/30 bg-brand-red/15 px-6 py-4 text-sm font-semibold text-brand-redSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-red/40 hover:bg-brand-red/20 hover:text-white hover:shadow-glow-red"
                             >
                                 Voir mes projets
                             </a>
@@ -120,7 +119,7 @@ export default function Home() {
 
                             <a
                                 href="mailto:ton-email@example.com"
-                                className="inline-flex items-center justify-center rounded-[1.4rem] border border-white/10 bg-obsidian-900/80 px-6 py-4 text-sm font-semibold text-ui-text backdrop-blur-2xl transition-all duration-300 hover:border-brand-purple/30 hover:text-white hover:shadow-glow-purple"
+                                className="inline-flex items-center justify-center rounded-[1.4rem] border border-white/10 bg-obsidian-900/80 px-6 py-4 text-sm font-semibold text-ui-text backdrop-blur-2xl transition-all duration-300 hover:border-brand-red/30 hover:text-white hover:shadow-glow-red"
                             >
                                 Contact
                             </a>
@@ -130,7 +129,7 @@ export default function Home() {
 
                 <RevealOnScroll delay={150}>
                     <div>
-                        <div className="relative rounded-[2rem] border border-brand-purple/20 bg-obsidian-950 text-ui-text shadow-purpleGlow backdrop-blur-xl">
+                        <div className="relative rounded-[2rem] border border-brand-red/20 bg-obsidian-950 text-ui-text shadow-redGlow backdrop-blur-xl">
                             <ScanOverlay />
 
                             <div className="relative z-10 flex items-center gap-2 border-b border-ui-border px-5 py-4">
@@ -150,9 +149,9 @@ export default function Home() {
                                     </p>
                                 ))}
 
-                                <p className="pt-3 text-brand-purpleSoft">
+                                <p className="pt-3 text-brand-redSoft">
                                     {typedText}
-                                    <span className="ml-1 inline-block h-4 w-[8px] animate-pulse bg-brand-purpleSoft align-middle" />
+                                    <span className="ml-1 inline-block h-4 w-[8px] animate-pulse bg-brand-redSoft align-middle" />
                                 </p>
                             </div>
                         </div>
@@ -166,15 +165,17 @@ export default function Home() {
                 <RevealOnScroll>
                     <PremiumCard
                         accent="purple"
-                        badge="Projet phare"
-                        title="Purple Team Lab"
-                        description="Mon projet principal : une web app Purple Team qui combine simulation d’attaque, détection défensive et validation des contrôles dans une interface immersive."
+                        badge={featuredProject.badge}
+                        title={featuredProject.name}
+                        description={featuredProject.description}
                     >
                         <a
-                            href="/projects/purple-team-lab"
-                            className="mt-6 inline-flex rounded-[1.4rem] border border-brand-purple/30 bg-brand-purple/15 px-5 py-4 text-sm font-semibold text-brand-purpleSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-purple/40 hover:bg-brand-purple/20 hover:text-white hover:shadow-glow-purple"
+                            href={featuredProject.internalRoute || featuredProject.liveUrl || featuredProject.githubUrl}
+                            target={featuredProject.internalRoute || featuredProject.liveUrl ? undefined : "_blank"}
+                            rel={featuredProject.internalRoute || featuredProject.liveUrl ? undefined : "noreferrer"}
+                            className="mt-6 inline-flex rounded-[1.4rem] border border-brand-red/30 bg-brand-red/15 px-5 py-4 text-sm font-semibold text-brand-redSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-red/40 hover:bg-brand-red/20 hover:text-white hover:shadow-glow-red"
                         >
-                            Explorer le projet
+                            {featuredProject.internalRoute || featuredProject.liveUrl ? "Explorer le projet" : "Voir sur GitHub"}
                         </a>
                     </PremiumCard>
                 </RevealOnScroll>
@@ -200,8 +201,8 @@ export default function Home() {
 
             <section className="mt-16">
                 <RevealOnScroll>
-                    <div className="relative overflow-hidden rounded-[2rem] border border-brand-purple/20 bg-gradient-to-br from-surface-2 to-obsidian-900 p-8 text-center">
-                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.05),rgba(34,211,238,0.03),transparent)]" />
+                    <div className="relative overflow-hidden rounded-[2rem] border border-brand-red/20 bg-gradient-to-br from-surface-2 to-obsidian-900 p-8 text-center">
+                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.05),rgba(34,211,238,0.03),transparent)]" />
 
                         <div className="relative z-10">
                             <h2 className="text-2xl font-bold text-ui-text">Contact</h2>
@@ -213,7 +214,7 @@ export default function Home() {
                             <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                                 <a
                                     href="mailto:ton-email@example.com"
-                                    className="rounded-[1.4rem] border border-brand-purple/30 bg-brand-purple/15 px-6 py-4 text-sm font-semibold text-brand-purpleSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-purple/40 hover:bg-brand-purple/20 hover:text-white hover:shadow-glow-purple"
+                                    className="rounded-[1.4rem] border border-brand-red/30 bg-brand-red/15 px-6 py-4 text-sm font-semibold text-brand-redSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-red/40 hover:bg-brand-red/20 hover:text-white hover:shadow-glow-red"
                                 >
                                     📧 Me contacter
                                 </a>

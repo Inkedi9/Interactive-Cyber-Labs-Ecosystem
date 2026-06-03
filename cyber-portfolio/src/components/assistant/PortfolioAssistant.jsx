@@ -41,7 +41,7 @@ export default function PortfolioAssistant() {
 
             {isOpen && (
                 <div className="fixed bottom-40 right-6 z-[85] w-[calc(100vw-3rem)] max-w-md overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-950/92 shadow-[0_20px_80px_rgba(0,0,0,0.42)] backdrop-blur-2xl">
-                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.08),_rgba(139,92,246,0.08),_transparent_45%)]" />
+                    <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.08),_rgba(230,57,70,0.08),_transparent_45%)]" />
                     <div className="relative flex items-center justify-between border-b border-white/10 px-5 py-4">
                         <div>
                             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-brand-cyanSoft">
@@ -55,7 +55,7 @@ export default function PortfolioAssistant() {
                         <button
                             type="button"
                             onClick={resetConversation}
-                            className="rounded-xl border border-ui-borderStrong bg-surface-2 px-3 py-2 text-xs font-medium text-ui-secondary transition hover:border-brand-purple/40 hover:text-brand-purpleSoft"
+                            className="rounded-xl border border-ui-borderStrong bg-surface-2 px-3 py-2 text-xs font-medium text-ui-secondary transition hover:border-brand-red/40 hover:text-brand-redSoft"
                         >
                             Vider
                         </button>

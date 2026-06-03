@@ -102,7 +102,7 @@ const nextSteps = [
 
 function AccentBadge({ accent = "purple", children }) {
     const styles = {
-        purple: "border-brand-purple/25 bg-brand-purple/10 text-brand-purpleSoft",
+        purple: "border-brand-red/25 bg-brand-red/10 text-brand-redSoft",
         cyan: "border-brand-cyan/25 bg-brand-cyan/10 text-brand-cyanSoft",
         emerald:
             "border-brand-emerald/25 bg-brand-emerald/10 text-brand-emeraldSoft",
@@ -129,7 +129,7 @@ function PremiumCard({
 
     const hoverStyles = {
         purple:
-            "hover:border-brand-purple/25 hover:shadow-[0_18px_60px_rgba(139,92,246,0.12)]",
+            "hover:border-brand-red/25 hover:shadow-[0_18px_60px_rgba(230,57,70,0.12)]",
         cyan:
             "hover:border-brand-cyan/25 hover:shadow-[0_18px_60px_rgba(34,211,238,0.10)]",
         emerald:
@@ -140,7 +140,7 @@ function PremiumCard({
         ACTIVE:
             "border-brand-emerald/25 bg-brand-emerald/10 text-brand-emeraldSoft",
         READY:
-            "border-brand-purple/25 bg-brand-purple/10 text-brand-purpleSoft",
+            "border-brand-red/25 bg-brand-red/10 text-brand-redSoft",
         BUILDING:
             "border-brand-cyan/25 bg-brand-cyan/10 text-brand-cyanSoft",
     };
@@ -152,7 +152,7 @@ function PremiumCard({
             className={`group relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 ${hoverStyles[accent]} ${isKali ? "ring-1 ring-rose-400/30 shadow-[0_0_40px_rgba(244,63,94,0.12)]" : ""
                 }`}
         >
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.05),rgba(34,211,238,0.03),transparent)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.05),rgba(34,211,238,0.03),transparent)]" />
 
             <div className="relative z-10">
                 <div className="flex flex-wrap items-center justify-between gap-3">
@@ -172,7 +172,7 @@ function PremiumCard({
                                 className={`h-2 w-2 rounded-full ${status === "ACTIVE"
                                     ? "bg-brand-emerald"
                                     : status === "READY"
-                                        ? "bg-brand-purple"
+                                        ? "bg-brand-red"
                                         : "bg-brand-cyan"
                                     } ${status !== "BUILDING" ? "animate-pulse" : ""}`}
                             />
@@ -184,7 +184,7 @@ function PremiumCard({
                 <div className="mt-4 flex items-center gap-3">
                     {Icon && (
                         <div
-                            className={`flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(34,211,238,0.10),rgba(139,92,246,0.10))] text-brand-cyanSoft shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(139,92,246,0.25)] ${isKali ? "group-hover:scale-110 group-hover:animate-pulse" : "group-hover:scale-110"
+                            className={`flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(34,211,238,0.10),rgba(230,57,70,0.10))] text-brand-cyanSoft shadow-[0_0_20px_rgba(34,211,238,0.15)] transition-all duration-300 group-hover:shadow-[0_0_30px_rgba(230,57,70,0.25)] ${isKali ? "group-hover:scale-110 group-hover:animate-pulse" : "group-hover:scale-110"
                                 }`}
                         >
                             <Icon size={20} />
@@ -228,7 +228,7 @@ function LabStatusConsole() {
     }, []);
 
     return (
-        <div className="relative overflow-hidden rounded-[2rem] border border-brand-purple/20 bg-obsidian-950 text-ui-text shadow-purpleGlow backdrop-blur-xl">
+        <div className="relative overflow-hidden rounded-[2rem] border border-brand-red/20 bg-obsidian-950 text-ui-text shadow-redGlow backdrop-blur-xl">
             {/* HEADER */}
             <div className="flex items-center gap-2 border-b border-white/10 px-5 py-4">
                 <span className="h-3 w-3 rounded-full bg-rose-400" />
@@ -259,7 +259,7 @@ function LabStatusConsole() {
                             log.includes("[OK]")
                                 ? "text-brand-cyanSoft"
                                 : log.includes("[DEV]")
-                                    ? "text-brand-purpleSoft"
+                                    ? "text-brand-redSoft"
                                     : "text-ui-muted"
                         }
                     >
@@ -267,7 +267,7 @@ function LabStatusConsole() {
                     </p>
                 ))}
 
-                <p className="pt-2 text-brand-purpleSoft">
+                <p className="pt-2 text-brand-redSoft">
                     Status: lab operational.
                 </p>
             </div>
@@ -415,7 +415,7 @@ export default function MiniLabIT() {
             <RevealOnScroll>
                 <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
                     <div>
-                        <span className="inline-block rounded-full border border-brand-purple/30 bg-brand-purple/10 px-4 py-1 text-xs uppercase tracking-[0.25em] text-brand-purpleSoft">
+                        <span className="inline-block rounded-full border border-brand-red/30 bg-brand-red/10 px-4 py-1 text-xs uppercase tracking-[0.25em] text-brand-redSoft">
                             Infrastructure Lab
                         </span>
 
@@ -432,7 +432,7 @@ export default function MiniLabIT() {
                         <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                             <a
                                 href="/changelog"
-                                className="inline-flex items-center justify-center rounded-[1.4rem] border border-brand-purple/30 bg-brand-purple/15 px-6 py-4 text-sm font-semibold text-brand-purpleSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-purple/40 hover:bg-brand-purple/20 hover:text-white hover:shadow-glow-purple"
+                                className="inline-flex items-center justify-center rounded-[1.4rem] border border-brand-red/30 bg-brand-red/15 px-6 py-4 text-sm font-semibold text-brand-redSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-red/40 hover:bg-brand-red/20 hover:text-white hover:shadow-glow-red"
                             >
                                 Voir le Build Log
                             </a>
@@ -446,7 +446,7 @@ export default function MiniLabIT() {
                         </div>
                     </div>
 
-                    <div className="relative overflow-hidden rounded-[2rem] border border-brand-purple/20 bg-obsidian-950 text-ui-text shadow-purpleGlow backdrop-blur-xl">
+                    <div className="relative overflow-hidden rounded-[2rem] border border-brand-red/20 bg-obsidian-950 text-ui-text shadow-redGlow backdrop-blur-xl">
 
                         {/* HEADER */}
                         <div className="flex items-center gap-2 border-b border-white/10 px-5 py-4">
@@ -490,7 +490,7 @@ export default function MiniLabIT() {
                                 [DEV] Linux analysis node building (LINUX-01)
                             </p>
 
-                            <p className="pt-2 text-brand-purpleSoft">
+                            <p className="pt-2 text-brand-redSoft">
                                 Status: infrastructure evolving.
                             </p>
                         </div>
@@ -500,7 +500,7 @@ export default function MiniLabIT() {
 
             <section className="mt-16">
                 <RevealOnScroll>
-                    <span className="inline-block rounded-full border border-brand-purple/20 bg-brand-purple/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-brand-purpleSoft">
+                    <span className="inline-block rounded-full border border-brand-red/20 bg-brand-red/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-brand-redSoft">
                         Infrastructure layout
                     </span>
                     <div className="mb-6">
@@ -518,15 +518,15 @@ export default function MiniLabIT() {
 
                 <RevealOnScroll delay={100}>
                     <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-8 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl">
-                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.05),rgba(34,211,238,0.03),transparent)]" />
+                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.05),rgba(34,211,238,0.03),transparent)]" />
 
                         <div className="relative z-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
                             {/* LIGNES TOPO DESKTOP */}
-                            <div className="pointer-events-none absolute left-[31%] top-1/2 hidden h-px w-[8%] -translate-y-1/2 bg-gradient-to-r from-brand-emerald/40 via-brand-purple/30 to-brand-purple/20 lg:block" />
-                            <div className="pointer-events-none absolute right-[26%] top-[34%] hidden h-[20%] w-px bg-gradient-to-b from-brand-purple/40 via-brand-cyan/30 to-brand-cyan/20 lg:block" />
+                            <div className="pointer-events-none absolute left-[31%] top-1/2 hidden h-px w-[8%] -translate-y-1/2 bg-gradient-to-r from-brand-emerald/40 via-brand-red/30 to-brand-red/20 lg:block" />
+                            <div className="pointer-events-none absolute right-[26%] top-[34%] hidden h-[20%] w-px bg-gradient-to-b from-brand-red/40 via-brand-cyan/30 to-brand-cyan/20 lg:block" />
 
                             {/* DOTS DE JONCTION */}
-                            <div className="pointer-events-none absolute left-[39%] top-1/2 hidden h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-brand-purple shadow-[0_0_12px_rgba(139,92,246,0.7)] lg:block" />
+                            <div className="pointer-events-none absolute left-[39%] top-1/2 hidden h-2.5 w-2.5 -translate-y-1/2 rounded-full bg-brand-red shadow-[0_0_12px_rgba(230,57,70,0.7)] lg:block" />
                             <div className="pointer-events-none absolute right-[26%] top-[54%] hidden h-2.5 w-2.5 rounded-full bg-brand-cyan shadow-[0_0_12px_rgba(34,211,238,0.7)] lg:block" />
 
                             {/* KALI */}
@@ -535,7 +535,7 @@ export default function MiniLabIT() {
                                     <AccentBadge accent="emerald">Attack node</AccentBadge>
 
                                     <div className="mt-4 flex items-center gap-3">
-                                        <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(16,185,129,0.12),rgba(139,92,246,0.10))] text-brand-emeraldSoft shadow-[0_0_16px_rgba(16,185,129,0.18)] transition-all duration-300 group-hover:scale-110 group-hover:animate-pulse">
+                                        <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(16,185,129,0.12),rgba(230,57,70,0.10))] text-brand-emeraldSoft shadow-[0_0_16px_rgba(16,185,129,0.18)] transition-all duration-300 group-hover:scale-110 group-hover:animate-pulse">
                                             <Bug size={20} />
                                         </div>
 
@@ -554,11 +554,11 @@ export default function MiniLabIT() {
                             {/* BLOC PRINCIPAL */}
                             <div className="grid gap-6">
                                 {/* SRV_DC */}
-                                <div className="group mx-auto w-full max-w-md rounded-[1.6rem] border border-brand-purple/20 bg-obsidian-900/70 p-5 text-center backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-brand-purple/30 hover:shadow-[0_18px_60px_rgba(139,92,246,0.12)]">
+                                <div className="group mx-auto w-full max-w-md rounded-[1.6rem] border border-brand-red/20 bg-obsidian-900/70 p-5 text-center backdrop-blur-xl transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/30 hover:shadow-[0_18px_60px_rgba(230,57,70,0.12)]">
                                     <AccentBadge accent="purple">AD / Domain</AccentBadge>
 
                                     <div className="mt-4 flex items-center justify-center gap-3">
-                                        <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(139,92,246,0.12),rgba(34,211,238,0.08))] text-brand-purpleSoft shadow-[0_0_16px_rgba(139,92,246,0.18)] transition-all duration-300 group-hover:scale-110">
+                                        <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(230,57,70,0.12),rgba(34,211,238,0.08))] text-brand-redSoft shadow-[0_0_16px_rgba(230,57,70,0.18)] transition-all duration-300 group-hover:scale-110">
                                             <Server size={20} />
                                         </div>
 
@@ -579,7 +579,7 @@ export default function MiniLabIT() {
                                         <AccentBadge accent="cyan">Endpoint</AccentBadge>
 
                                         <div className="mt-4 flex items-center gap-3">
-                                            <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(34,211,238,0.10),rgba(139,92,246,0.08))] text-brand-cyanSoft shadow-[0_0_16px_rgba(34,211,238,0.18)] transition-all duration-300 group-hover:scale-110">
+                                            <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(34,211,238,0.10),rgba(230,57,70,0.08))] text-brand-cyanSoft shadow-[0_0_16px_rgba(34,211,238,0.18)] transition-all duration-300 group-hover:scale-110">
                                                 <Monitor size={20} />
                                             </div>
 
@@ -598,7 +598,7 @@ export default function MiniLabIT() {
                                         <AccentBadge accent="cyan">Analysis</AccentBadge>
 
                                         <div className="mt-4 flex items-center gap-3">
-                                            <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(34,211,238,0.10),rgba(139,92,246,0.08))] text-brand-cyanSoft shadow-[0_0_16px_rgba(34,211,238,0.18)] transition-all duration-300 group-hover:scale-110">
+                                            <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(34,211,238,0.10),rgba(230,57,70,0.08))] text-brand-cyanSoft shadow-[0_0_16px_rgba(34,211,238,0.18)] transition-all duration-300 group-hover:scale-110">
                                                 <Shield size={20} />
                                             </div>
 
@@ -644,7 +644,7 @@ export default function MiniLabIT() {
                                 </div>
 
                                 <div className="flex items-center gap-3 text-sm text-ui-secondary">
-                                    <span className="h-2 w-2 rounded-full bg-brand-purple animate-pulse" />
+                                    <span className="h-2 w-2 rounded-full bg-brand-red animate-pulse" />
                                     Environnement en évolution continue
                                 </div>
                             </div>
@@ -661,7 +661,7 @@ export default function MiniLabIT() {
             <section className="mt-16 grid gap-8 xl:grid-cols-[1.1fr_0.9fr]">
                 <RevealOnScroll>
                     <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-8 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl">
-                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.05),rgba(34,211,238,0.03),transparent)]" />
+                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.05),rgba(34,211,238,0.03),transparent)]" />
 
                         <div className="relative z-10">
                             <h2 className="text-2xl font-bold text-ui-text">
@@ -714,7 +714,7 @@ export default function MiniLabIT() {
 
                 <RevealOnScroll delay={120}>
                     <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-8 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl">
-                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(34,211,238,0.04),rgba(139,92,246,0.03),transparent)]" />
+                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(34,211,238,0.04),rgba(230,57,70,0.03),transparent)]" />
 
                         <div className="relative z-10">
                             <h2 className="text-2xl font-bold text-ui-text">
@@ -769,8 +769,8 @@ export default function MiniLabIT() {
 
             <section className="mt-16">
                 <RevealOnScroll>
-                    <div className="relative overflow-hidden rounded-[2rem] border border-brand-purple/20 bg-gradient-to-br from-surface-2 to-obsidian-900 p-8">
-                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.05),rgba(34,211,238,0.03),transparent)]" />
+                    <div className="relative overflow-hidden rounded-[2rem] border border-brand-red/20 bg-gradient-to-br from-surface-2 to-obsidian-900 p-8">
+                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.05),rgba(34,211,238,0.03),transparent)]" />
 
                         <div className="relative z-10">
                             <h2 className="text-2xl font-bold text-ui-text">
@@ -783,7 +783,7 @@ export default function MiniLabIT() {
                                         key={step}
                                         className="flex gap-3 rounded-[1.4rem] border border-white/10 bg-obsidian-900/70 px-4 py-4 backdrop-blur-xl"
                                     >
-                                        <span className="mt-2 h-2 w-2 rounded-full bg-brand-purple shadow-[0_0_10px_rgba(139,92,246,0.7)]" />
+                                        <span className="mt-2 h-2 w-2 rounded-full bg-brand-red shadow-[0_0_10px_rgba(230,57,70,0.7)]" />
                                         <p className="text-ui-secondary leading-7">{step}</p>
                                     </div>
                                 ))}
@@ -795,8 +795,8 @@ export default function MiniLabIT() {
 
             <section className="mt-16">
                 <RevealOnScroll>
-                    <div className="relative overflow-hidden rounded-[2rem] border border-brand-purple/20 bg-gradient-to-br from-surface-2 to-obsidian-900 p-8">
-                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.05),rgba(34,211,238,0.03),transparent)]" />
+                    <div className="relative overflow-hidden rounded-[2rem] border border-brand-red/20 bg-gradient-to-br from-surface-2 to-obsidian-900 p-8">
+                        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.05),rgba(34,211,238,0.03),transparent)]" />
 
                         <div className="relative z-10">
                             <h2 className="text-2xl font-bold text-ui-text">

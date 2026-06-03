@@ -32,7 +32,7 @@ export default function ScrollToTopButton() {
             <span className="inline-block h-2 w-2 rounded-full bg-brand-cyan shadow-[0_0_12px_rgba(34,211,238,0.85)]" />
             Top
 
-            <span className="pointer-events-none absolute inset-0 rounded-[1.4rem] bg-[linear-gradient(135deg,rgba(139,92,246,0.08),rgba(34,211,238,0.05),transparent)] opacity-100" />
+            <span className="pointer-events-none absolute inset-0 rounded-[1.4rem] bg-[linear-gradient(135deg,rgba(230,57,70,0.08),rgba(34,211,238,0.05),transparent)] opacity-100" />
         </button>
     );
 }

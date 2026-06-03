@@ -1,6 +1,6 @@
 export default function ProjectCard({ project }) {
     return (
-        <div className="group rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:border-fuchsia-400/50 hover:shadow-[0_0_40px_rgba(168,85,247,0.18)] light:border-slate-200 light:bg-white light:hover:border-fuchsia-300 light:hover:shadow-[0_0_30px_rgba(168,85,247,0.10)]">
+        <div className="group rounded-3xl border border-white/10 bg-white/[0.03] p-6 backdrop-blur-xl transition hover:-translate-y-1 hover:border-fuchsia-400/50 hover:shadow-[0_0_40px_rgba(230,57,70,0.18)] light:border-slate-200 light:bg-white light:hover:border-fuchsia-300 light:hover:shadow-[0_0_30px_rgba(230,57,70,0.10)]">
             <div className="mb-4 flex items-center justify-between gap-3">
                 <span className="rounded-xl border border-fuchsia-500/30 bg-fuchsia-500/10 px-3 py-2 text-sm text-fuchsia-200 light:border-fuchsia-300 light:bg-fuchsia-100 light:text-fuchsia-700">
                     {project.badge}

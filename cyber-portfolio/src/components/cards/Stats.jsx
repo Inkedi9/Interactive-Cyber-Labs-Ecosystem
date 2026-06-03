@@ -29,13 +29,13 @@ export default function Stats() {
         <div className="mt-10 grid gap-4 sm:grid-cols-3">
 
             {/* CARD 1 */}
-            <div className="group relative rounded-2xl border border-ui-border bg-surface p-5 shadow-sm transition hover:-translate-y-1 hover:border-brand-purple/40 hover:shadow-purpleGlow">
+            <div className="group relative rounded-2xl border border-ui-border bg-surface p-5 shadow-sm transition hover:-translate-y-1 hover:border-brand-red/40 hover:shadow-redGlow">
 
-                <div className="absolute inset-0 rounded-2xl opacity-0 transition group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.12),transparent_60%)]" />
+                <div className="absolute inset-0 rounded-2xl opacity-0 transition group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(230,57,70,0.12),transparent_60%)]" />
 
                 <div className="relative z-10 text-center">
                     <div className="mb-2 text-xl">🛡️</div>
-                    <div className="text-3xl font-bold text-brand-purple">
+                    <div className="text-3xl font-bold text-brand-red">
                         <Counter target={6} />+
                     </div>
                     <div className="mt-1 text-sm text-ui-muted">

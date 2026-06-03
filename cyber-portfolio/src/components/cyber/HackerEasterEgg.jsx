@@ -54,10 +54,10 @@ export default function HackerEasterEgg() {
 
     return (
         <div className="fixed inset-0 z-[9998] flex items-center justify-center bg-black/80 backdrop-blur-md px-6">
-            <div className="relative w-full max-w-2xl rounded-[2rem] border border-brand-purple/20 bg-black p-6 shadow-[0_0_80px_rgba(168,85,247,0.25)]">
+            <div className="relative w-full max-w-2xl rounded-[2rem] border border-brand-red/20 bg-black p-6 shadow-[0_0_80px_rgba(230,57,70,0.25)]">
 
                 {/* glow overlay */}
-                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(139,92,246,0.18),transparent_60%)]" />
+                <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(230,57,70,0.18),transparent_60%)]" />
 
                 {/* header terminal */}
                 <div className="relative z-10 flex items-center justify-between border-b border-white/10 pb-4">
@@ -97,7 +97,7 @@ export default function HackerEasterEgg() {
                         </p>
                     ))}
 
-                    <p className="pt-3 text-brand-purpleSoft animate-pulse">
+                    <p className="pt-3 text-brand-redSoft animate-pulse">
                         root shell ready_
                     </p>
                 </div>

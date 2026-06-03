@@ -1,85 +1,9 @@
 import { useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import RevealOnScroll from "../components/ui/RevealOnScroll";
+import { PROJECTS } from "../data/siteData";
 
-const projects = [
-    {
-        name: "Purple Team Lab",
-        status: "Déployé",
-        badge: "Projet phare",
-        category: "Purple Team",
-        slug: "purple-team-lab",
-        description:
-            "Web app Purple Team mêlant simulation d’attaque, détection défensive et validation dans une interface cyber moderne.",
-        liveUrl: "https://purple-team-lab.vercel.app/",
-        githubUrl: "https://github.com/Inkedi9/purple-team-lab",
-    },
-    {
-        name: "SOC Simulator - Command Center",
-        status: "Déployé",
-        badge: "Blue Team",
-        category: "Blue Team",
-        slug: "soc-simulator",
-        description:
-            "Dashboard SOC immersif avec alertes, logs et investigations orientées analyste sécurité.",
-        liveUrl: "https://soc-simulator-kappa.vercel.app/",
-        githubUrl: "https://github.com/Inkedi9/soc-simulator",
-    },
-    {
-        name: "OSINT Investigator",
-        status: "Déployé",
-        badge: "OSINT",
-        category: "OSINT",
-        slug: "osint-investigator",
-        description:
-            "Outil d’investigation OSINT avec profils, timeline et interface d’analyse.",
-        liveUrl: "https://osint-investigator-dashboard.vercel.app/",
-        githubUrl: "https://github.com/Inkedi9/osint-investigator-dashboard",
-    },
-    {
-        name: "Phishing Detection Simulator",
-        status: "Déployé",
-        badge: "Email Security",
-        category: "Awareness",
-        slug: "phishing-detection-simulator",
-        description:
-            "Simulateur pédagogique de détection de phishing avec scoring et analyse visuelle.",
-        liveUrl: "https://phishscope.vercel.app/",
-        githubUrl: "https://github.com/Inkedi9/phishscope",
-    },
-    {
-        name: "Identity & Access - Attack Simulator",
-        status: "En cours",
-        badge: "Red Team",
-        category: "Red Team",
-        slug: "identity-access-attack-simulator",
-        description:
-            "Visual simulation of identity compromise, privilege escalation and enterprise access abuse.",
-        liveUrl: "",
-        githubUrl: "https://github.com/Inkedi9",
-    },
-    {
-        name: "Threat Intelligence Platform",
-        status: "En cours",
-        badge: "Threat Intel",
-        category: "Threat Intel",
-        slug: "threat-intelligence-platform",
-        description:
-            "Plateforme de veille et de corrélation orientée threat intelligence, indicateurs et analyse contextuelle.",
-        liveUrl: "",
-        githubUrl: "https://github.com/Inkedi9",
-    },
-];
-
-const filters = [
-    "Tous",
-    "Purple Team",
-    "Blue Team",
-    "OSINT",
-    "Awareness",
-    "Red Team",
-    "Threat Intel",
-];
+const filters = ["Tous", ...new Set(PROJECTS.map((p) => p.category))];
 
 const badgeBase =
     "inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-medium backdrop-blur-xl";
@@ -88,15 +12,15 @@ export default function Projects() {
     const [activeFilter, setActiveFilter] = useState("Tous");
 
     const filteredProjects = useMemo(() => {
-        if (activeFilter === "Tous") return projects;
-        return projects.filter((project) => project.category === activeFilter);
+        if (activeFilter === "Tous") return PROJECTS;
+        return PROJECTS.filter((project) => project.category === activeFilter);
     }, [activeFilter]);
 
     return (
         <div className="mx-auto max-w-7xl px-6 pb-20 pt-28 lg:px-8 lg:pt-36">
             <RevealOnScroll>
                 <div className="mb-10">
-                    <span className="inline-block rounded-full border border-brand-purple/30 bg-brand-purple/10 px-4 py-1 text-xs uppercase tracking-[0.25em] text-brand-purpleSoft">
+                    <span className="inline-block rounded-full border border-brand-red/30 bg-brand-red/10 px-4 py-1 text-xs uppercase tracking-[0.25em] text-brand-redSoft">
                         Projets
                     </span>
 
@@ -121,7 +45,7 @@ export default function Projects() {
                                 key={filter}
                                 onClick={() => setActiveFilter(filter)}
                                 className={`rounded-[1.4rem] border px-4 py-3 text-sm font-semibold backdrop-blur-2xl transition-all duration-300 ${isActive
-                                    ? "border-brand-purple/30 bg-brand-purple/15 text-brand-purpleSoft shadow-glow-purple"
+                                    ? "border-brand-red/30 bg-brand-red/15 text-brand-redSoft shadow-glow-red"
                                     : "border-brand-cyan/20 bg-obsidian-900/35 text-ui-text hover:border-brand-cyan/30 hover:bg-brand-cyan/10 hover:text-white hover:shadow-glow-cyan"
                                     }`}
                             >
@@ -138,11 +62,11 @@ export default function Projects() {
 
                     return (
                         <RevealOnScroll key={`${project.name}-${activeFilter}`} delay={index * 80}>
-                            <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-brand-purple/25 hover:shadow-[0_18px_60px_rgba(139,92,246,0.12)]">
-                                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.05),rgba(34,211,238,0.03),transparent)] opacity-100" />
+                            <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/25 hover:shadow-[0_18px_60px_rgba(230,57,70,0.12)]">
+                                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.05),rgba(34,211,238,0.03),transparent)] opacity-100" />
 
                                 <div className="relative z-10 mb-4 flex flex-wrap items-center justify-between gap-3">
-                                    <span className={`${badgeBase} border-brand-purple/25 bg-brand-purple/10 text-brand-purpleSoft`}>
+                                    <span className={`${badgeBase} border-brand-red/25 bg-brand-red/10 text-brand-redSoft`}>
                                         {project.badge || "Projet"}
                                     </span>
 
@@ -166,10 +90,10 @@ export default function Projects() {
                                 </p>
 
                                 <div className="relative z-10 mt-6 flex flex-col gap-3 sm:flex-row">
-                                    {project.slug === "purple-team-lab" ? (
+                                    {project.internalRoute ? (
                                         <Link
-                                            to="/projects/purple-team-lab"
-                                            className="inline-flex items-center justify-center rounded-[1.2rem] border border-brand-purple/30 bg-brand-purple/15 px-4 py-3 text-sm font-medium text-brand-purpleSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-purple/40 hover:bg-brand-purple/20 hover:text-white hover:shadow-glow-purple"
+                                            to={project.internalRoute}
+                                            className="inline-flex items-center justify-center rounded-[1.2rem] border border-brand-red/30 bg-brand-red/15 px-4 py-3 text-sm font-medium text-brand-redSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-red/40 hover:bg-brand-red/20 hover:text-white hover:shadow-glow-red"
                                         >
                                             Voir la fiche projet
                                         </Link>
@@ -178,12 +102,12 @@ export default function Projects() {
                                             href={project.liveUrl}
                                             target="_blank"
                                             rel="noreferrer"
-                                            className="inline-flex items-center justify-center rounded-[1.2rem] border border-brand-purple/30 bg-brand-purple/15 px-4 py-3 text-sm font-medium text-brand-purpleSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-purple/40 hover:bg-brand-purple/20 hover:text-white hover:shadow-glow-purple"
+                                            className="inline-flex items-center justify-center rounded-[1.2rem] border border-brand-red/30 bg-brand-red/15 px-4 py-3 text-sm font-medium text-brand-redSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-red/40 hover:bg-brand-red/20 hover:text-white hover:shadow-glow-red"
                                         >
                                             Voir le projet
                                         </a>
                                     ) : (
-                                        <span className="inline-flex items-center justify-center rounded-[1.2rem] border border-brand-purple/15 bg-brand-purple/8 px-4 py-3 text-sm font-medium text-brand-purpleSoft/80 backdrop-blur-2xl opacity-80">
+                                        <span className="inline-flex items-center justify-center rounded-[1.2rem] border border-brand-red/15 bg-brand-red/8 px-4 py-3 text-sm font-medium text-brand-redSoft/80 backdrop-blur-2xl opacity-80">
                                             Bientôt disponible
                                         </span>
                                     )}

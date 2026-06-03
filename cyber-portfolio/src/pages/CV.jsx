@@ -1,77 +1,45 @@
 import RevealOnScroll from "../components/ui/RevealOnScroll";
+import { SKILLS, PROJECTS } from "../data/siteData";
 
-const skillGroups = [
-    {
-        title: "Blue Team",
-        items: ["Analyse d’alertes", "Investigation", "Détection", "SOC workflows"],
-    },
-    {
-        title: "OSINT",
-        items: ["Recherche ouverte", "Profiling", "Corrélation", "Timeline"],
-    },
-    {
-        title: "Réseau",
-        items: ["TCP/IP", "DNS", "HTTP/HTTPS", "Analyse trafic"],
-    },
-    {
-        title: "Sécurité Web",
-        items: ["Phishing", "Validation", "Simulation", "Approche défensive"],
-    },
-    {
-        title: "Outils",
-        items: ["Wireshark", "Nmap", "Sysmon", "GitHub", "Vercel"],
-    },
-];
+const SKILL_TITLES = {
+    languages: "Langages & Frameworks",
+    infrastructure: "Infrastructure",
+    ai: "AI & Local Systems",
+    cybersecurity: "Cybersécurité",
+    tools: "Outils",
+};
+
+const skillGroups = Object.entries(SKILLS).map(([key, items]) => ({
+    title: SKILL_TITLES[key] ?? key,
+    items,
+}));
 
 const timeline = [
     {
-        period: "Aujourd’hui",
-        title: "Portfolio cyber orienté démonstration",
+        period: "2023 — Début",
+        title: "Découverte & premiers labs",
         description:
-            "Construction d’un portfolio moderne pour présenter mes compétences de manière visuelle, concrète et professionnelle.",
+            "Découverte de la cybersécurité et du développement web. Premiers labs sur TryHackMe / HackTheBox.",
     },
     {
-        period: "Projet phare",
-        title: "Purple Team Lab",
+        period: "2024 — Premiers projets",
+        title: "Cyber Portfolio & Threat Ops Lab",
         description:
-            "Développement d’une web app Purple Team combinant simulation d’attaque, détection défensive et validation.",
+            "Création du Cyber Portfolio (React + Tailwind). Développement de Threat Operations Lab (SIEM, Purple Team Labs). Apprentissage de JavaScript / TypeScript / React.",
     },
     {
-        period: "Projets pratiques",
-        title: "SOC Simulator / OSINT / Phishing",
+        period: "2025 — Pivot AI & Homelab",
+        title: "Go · JARVINx · Homelab · Inkora · Dark Ops Lab",
         description:
-            "Création de projets complémentaires pour couvrir plusieurs facettes de la cybersécurité : analyse, investigation et sensibilisation.",
-    },
-    {
-        period: "Objectif",
-        title: "Alternance / Stage cybersécurité",
-        description:
-            "Recherche d’une opportunité dans un environnement SOC, Blue Team ou Purple Team pour progresser sur des cas concrets.",
+            "Montée en compétence Go (débutant → projets réels). Lancement de JARVINx : agent IA autonome local-first. Mise en place du homelab Docker (Pi-hole, Nginx PM, Uptime Kuma, Homer…). Développement d’Inkora : interface IA locale sur Ollama (GTX 1060). Lancement de Dark Ops Lab : plateforme CTF en Go + Next.js.",
     },
 ];
 
-const featuredProjects = [
-    {
-        name: "Purple Team Lab",
-        role: "Projet vitrine principal",
-        desc: "Approche Purple Team moderne avec logique offensive, détection et validation dans une interface cyber immersive.",
-    },
-    {
-        name: "SOC Simulator - Command Center",
-        role: "Simulation analyste SOC",
-        desc: "Dashboard immersif avec alertes, logs et logique d’investigation orientée Blue Team.",
-    },
-    {
-        name: "OSINT Investigator",
-        role: "Investigation & corrélation",
-        desc: "Interface d’analyse dédiée à la recherche ouverte et à la structuration d’informations.",
-    },
-    {
-        name: "Phishing Detection Simulator",
-        role: "Sensibilisation & détection",
-        desc: "Projet pédagogique autour de l’identification de signaux suspects dans des emails et interfaces simulées.",
-    },
-];
+const featuredProjects = PROJECTS.map((p) => ({
+    name: p.name,
+    role: p.badge,
+    desc: p.description,
+}));
 
 const badgeBase =
     "inline-flex items-center rounded-full border px-3 py-1.5 text-xs font-medium backdrop-blur-xl";
@@ -79,7 +47,7 @@ const badgeBase =
 function SkillBlock({ title, items }) {
     return (
         <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-brand-cyan/25 hover:shadow-[0_18px_60px_rgba(34,211,238,0.10)]">
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(34,211,238,0.04),rgba(139,92,246,0.03),transparent)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(34,211,238,0.04),rgba(230,57,70,0.03),transparent)]" />
 
             <div className="relative z-10">
                 <h3 className="text-lg font-semibold text-ui-text">{title}</h3>
@@ -103,18 +71,18 @@ function TimelineItem({ item, isLast }) {
     return (
         <div className="relative pl-10">
             {!isLast && (
-                <div className="absolute left-[11px] top-8 h-[calc(100%+1.5rem)] w-px bg-gradient-to-b from-brand-purple/70 via-brand-cyan/30 to-transparent" />
+                <div className="absolute left-[11px] top-8 h-[calc(100%+1.5rem)] w-px bg-gradient-to-b from-brand-red/70 via-brand-cyan/30 to-transparent" />
             )}
 
-            <div className="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full border border-brand-purple/30 bg-brand-purple/15 shadow-[0_0_20px_rgba(139,92,246,0.20)] backdrop-blur-xl">
-                <div className="h-2.5 w-2.5 rounded-full bg-brand-purpleSoft" />
+            <div className="absolute left-0 top-1 flex h-6 w-6 items-center justify-center rounded-full border border-brand-red/30 bg-brand-red/15 shadow-[0_0_20px_rgba(230,57,70,0.20)] backdrop-blur-xl">
+                <div className="h-2.5 w-2.5 rounded-full bg-brand-redSoft" />
             </div>
 
-            <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-brand-purple/25 hover:shadow-[0_18px_60px_rgba(139,92,246,0.12)]">
-                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.05),rgba(34,211,238,0.03),transparent)]" />
+            <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/25 hover:shadow-[0_18px_60px_rgba(230,57,70,0.12)]">
+                <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.05),rgba(34,211,238,0.03),transparent)]" />
 
                 <div className="relative z-10">
-                    <span className={`${badgeBase} border-brand-purple/25 bg-brand-purple/10 uppercase tracking-[0.18em] text-brand-purpleSoft`}>
+                    <span className={`${badgeBase} border-brand-red/25 bg-brand-red/10 uppercase tracking-[0.18em] text-brand-redSoft`}>
                         {item.period}
                     </span>
 
@@ -133,11 +101,11 @@ function TimelineItem({ item, isLast }) {
 
 function ProjectMiniCard({ project }) {
     return (
-        <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-brand-purple/25 hover:shadow-[0_18px_60px_rgba(139,92,246,0.12)]">
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.05),rgba(34,211,238,0.03),transparent)]" />
+        <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/25 hover:shadow-[0_18px_60px_rgba(230,57,70,0.12)]">
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.05),rgba(34,211,238,0.03),transparent)]" />
 
             <div className="relative z-10">
-                <span className={`${badgeBase} border-brand-purple/25 bg-brand-purple/10 uppercase tracking-[0.18em] text-brand-purpleSoft`}>
+                <span className={`${badgeBase} border-brand-red/25 bg-brand-red/10 uppercase tracking-[0.18em] text-brand-redSoft`}>
                     {project.role}
                 </span>
 
@@ -164,9 +132,9 @@ function LabCard({
     const accentMap = {
         purple: {
             wrapper:
-                "hover:border-brand-purple/25 hover:shadow-[0_18px_60px_rgba(139,92,246,0.12)]",
-            chip: "bg-brand-purple/15 text-brand-purpleSoft",
-            bar: "bg-brand-purple",
+                "hover:border-brand-red/25 hover:shadow-[0_18px_60px_rgba(230,57,70,0.12)]",
+            chip: "bg-brand-red/15 text-brand-redSoft",
+            bar: "bg-brand-red",
         },
         cyan: {
             wrapper:
@@ -188,7 +156,7 @@ function LabCard({
         <div
             className={`group relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 ${styles.wrapper}`}
         >
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.04),rgba(34,211,238,0.03),transparent)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.04),rgba(34,211,238,0.03),transparent)]" />
 
             <div className="relative z-10">
                 <div className="flex items-center gap-3">
@@ -224,7 +192,7 @@ export default function CV() {
             <RevealOnScroll>
                 <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
                     <div>
-                        <span className="inline-block rounded-full border border-brand-purple/30 bg-brand-purple/10 px-4 py-1 text-xs uppercase tracking-[0.25em] text-brand-purpleSoft">
+                        <span className="inline-block rounded-full border border-brand-red/30 bg-brand-red/10 px-4 py-1 text-xs uppercase tracking-[0.25em] text-brand-redSoft">
                             CV / Compétences
                         </span>
 
@@ -244,7 +212,7 @@ export default function CV() {
                                 href="/cv-inkedi.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center justify-center rounded-[1.4rem] border border-brand-purple/30 bg-brand-purple/15 px-5 py-4 text-sm font-semibold text-brand-purpleSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-purple/40 hover:bg-brand-purple/20 hover:text-white hover:shadow-glow-purple"
+                                className="inline-flex items-center justify-center rounded-[1.4rem] border border-brand-red/30 bg-brand-red/15 px-5 py-4 text-sm font-semibold text-brand-redSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-red/40 hover:bg-brand-red/20 hover:text-white hover:shadow-glow-red"
                             >
                                 Télécharger mon CV
                             </a>
@@ -258,7 +226,7 @@ export default function CV() {
                         </div>
                     </div>
 
-                    <div className="rounded-[2rem] border border-brand-purple/20 bg-obsidian-950 text-ui-text shadow-purpleGlow">
+                    <div className="rounded-[2rem] border border-brand-red/20 bg-obsidian-950 text-ui-text shadow-redGlow">
                         <div className="flex items-center gap-2 border-b border-ui-border px-5 py-4">
                             <span className="h-3 w-3 rounded-full bg-rose-400" />
                             <span className="h-3 w-3 rounded-full bg-amber-400" />
@@ -269,7 +237,7 @@ export default function CV() {
                         <div className="space-y-4 p-6 font-mono text-sm">
                             <div>
                                 <p className="uppercase tracking-[0.18em] text-ui-muted">Positionnement</p>
-                                <p className="mt-2 text-brand-purpleSoft">SOC / Blue Team / Purple Team</p>
+                                <p className="mt-2 text-brand-redSoft">SOC / Blue Team / Purple Team</p>
                             </div>
 
                             <div>
@@ -288,7 +256,9 @@ export default function CV() {
 
                             <div>
                                 <p className="uppercase tracking-[0.18em] text-ui-muted">Projet phare</p>
-                                <p className="mt-2 text-brand-emeraldSoft">Purple Team Lab</p>
+                                <p className="mt-2 text-brand-emeraldSoft">
+                                    {PROJECTS.find((p) => p.featured)?.name ?? PROJECTS[0].name}
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -396,7 +366,7 @@ export default function CV() {
 
             <section className="mt-16">
                 <RevealOnScroll>
-                    <div className="rounded-[2rem] border border-brand-purple/20 bg-gradient-to-br from-surface-2 to-obsidian-900 p-8">
+                    <div className="rounded-[2rem] border border-brand-red/20 bg-gradient-to-br from-surface-2 to-obsidian-900 p-8">
                         <h2 className="text-2xl font-bold text-ui-text">
                             Ce que je recherche
                         </h2>
@@ -413,7 +383,7 @@ export default function CV() {
                                     href="/cv-inkedi.pdf"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="rounded-[1.4rem] border border-brand-purple/30 bg-brand-purple/15 px-5 py-4 text-sm font-semibold text-brand-purpleSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-purple/40 hover:bg-brand-purple/20 hover:text-white hover:shadow-glow-purple"
+                                    className="rounded-[1.4rem] border border-brand-red/30 bg-brand-red/15 px-5 py-4 text-sm font-semibold text-brand-redSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-red/40 hover:bg-brand-red/20 hover:text-white hover:shadow-glow-red"
                                 >
                                     Voir mon CV
                                 </a>
@@ -432,7 +402,7 @@ export default function CV() {
 
             <section className="mt-16">
                 <RevealOnScroll>
-                    <div className="rounded-[2rem] border border-brand-purple/20 bg-gradient-to-br from-surface-2 to-obsidian-900 p-8 text-center">
+                    <div className="rounded-[2rem] border border-brand-red/20 bg-gradient-to-br from-surface-2 to-obsidian-900 p-8 text-center">
                         <h2 className="text-2xl font-bold text-ui-text">
                             Contact
                         </h2>
@@ -444,7 +414,7 @@ export default function CV() {
                         <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                             <a
                                 href="mailto:ton-email@example.com"
-                                className="rounded-[1.4rem] border border-brand-purple/30 bg-brand-purple/15 px-6 py-4 text-sm font-semibold text-brand-purpleSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-purple/40 hover:bg-brand-purple/20 hover:text-white hover:shadow-glow-purple"
+                                className="rounded-[1.4rem] border border-brand-red/30 bg-brand-red/15 px-6 py-4 text-sm font-semibold text-brand-redSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-red/40 hover:bg-brand-red/20 hover:text-white hover:shadow-glow-red"
                             >
                                 📧 Me contacter
                             </a>

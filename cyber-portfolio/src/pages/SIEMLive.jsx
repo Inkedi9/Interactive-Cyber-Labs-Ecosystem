@@ -156,7 +156,7 @@ function StatCard({ value, label, colorClass, glowClass }) {
         <div
             className={`group relative overflow-hidden rounded-[1.6rem] border border-white/10 bg-obsidian-900/75 p-5 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 ${glowClass}`}
         >
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.04),rgba(34,211,238,0.03),transparent)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.04),rgba(34,211,238,0.03),transparent)]" />
             <div className="relative z-10">
                 <div className={`text-3xl font-bold ${colorClass}`}>{value}</div>
                 <div className="mt-1 text-sm text-ui-muted">{label}</div>
@@ -170,7 +170,7 @@ function SectionCard({ title, description, children, className = "" }) {
         <div
             className={`relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl ${className}`}
         >
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.04),rgba(34,211,238,0.03),transparent)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.04),rgba(34,211,238,0.03),transparent)]" />
             <div className="relative z-10">
                 {(title || description) && (
                     <div className="mb-4">
@@ -186,8 +186,8 @@ function SectionCard({ title, description, children, className = "" }) {
 
 function AlertCard({ alert }) {
     return (
-        <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-brand-purple/20 hover:shadow-[0_18px_60px_rgba(139,92,246,0.10)]">
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(139,92,246,0.04),rgba(34,211,238,0.03),transparent)]" />
+        <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-obsidian-900/75 p-6 shadow-[0_16px_50px_rgba(0,0,0,0.28)] backdrop-blur-2xl transition-all duration-300 hover:-translate-y-1 hover:border-brand-red/20 hover:shadow-[0_18px_60px_rgba(230,57,70,0.10)]">
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(230,57,70,0.04),rgba(34,211,238,0.03),transparent)]" />
 
             <div className="relative z-10">
                 <div className="flex flex-wrap items-center justify-between gap-3">
@@ -207,7 +207,7 @@ function AlertCard({ alert }) {
                     <span className="rounded-full border border-white/10 bg-obsidian-900/70 px-3 py-1.5 text-xs text-ui-text backdrop-blur-xl">
                         Time: {alert.time}
                     </span>
-                    <span className="rounded-full border border-brand-purple/25 bg-brand-purple/10 px-3 py-1.5 text-xs text-brand-purpleSoft backdrop-blur-xl">
+                    <span className="rounded-full border border-brand-red/25 bg-brand-red/10 px-3 py-1.5 text-xs text-brand-redSoft backdrop-blur-xl">
                         Status: {alert.status}
                     </span>
                 </div>
@@ -219,7 +219,7 @@ function AlertCard({ alert }) {
 function GlobalStatusPill({ label, value, tone = "cyan" }) {
     const tones = {
         cyan: "border-brand-cyan/20 bg-brand-cyan/10 text-brand-cyanSoft",
-        purple: "border-brand-purple/20 bg-brand-purple/10 text-brand-purpleSoft",
+        purple: "border-brand-red/20 bg-brand-red/10 text-brand-redSoft",
         emerald: "border-brand-emerald/20 bg-brand-emerald/10 text-brand-emeraldSoft",
         amber: "border-amber-400/20 bg-amber-400/10 text-amber-300",
     };
@@ -267,13 +267,13 @@ export default function SIEMLive() {
                 }`}
         >
             {fullDashboard && (
-                <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.06),_rgba(139,92,246,0.05),_transparent_40%)]" />
+                <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(circle_at_top_right,_rgba(34,211,238,0.06),_rgba(230,57,70,0.05),_transparent_40%)]" />
             )}
 
             <RevealOnScroll>
                 <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
                     <div>
-                        <span className="inline-block rounded-full border border-brand-purple/30 bg-brand-purple/10 px-4 py-1 text-xs uppercase tracking-[0.25em] text-brand-purpleSoft">
+                        <span className="inline-block rounded-full border border-brand-red/30 bg-brand-red/10 px-4 py-1 text-xs uppercase tracking-[0.25em] text-brand-redSoft">
                             SIEM Live
                         </span>
 
@@ -308,13 +308,13 @@ export default function SIEMLive() {
                             <StatCard
                                 value={<Counter target={counts.total} />}
                                 label="Total alerts"
-                                colorClass="text-brand-purpleSoft"
-                                glowClass="hover:border-brand-purple/20 hover:shadow-[0_18px_60px_rgba(139,92,246,0.10)]"
+                                colorClass="text-brand-redSoft"
+                                glowClass="hover:border-brand-red/20 hover:shadow-[0_18px_60px_rgba(230,57,70,0.10)]"
                             />
                         </div>
                     </div>
 
-                    <div className="relative rounded-[2rem] border border-brand-purple/20 bg-obsidian-950 text-ui-text shadow-purpleGlow">
+                    <div className="relative rounded-[2rem] border border-brand-red/20 bg-obsidian-950 text-ui-text shadow-redGlow">
                         <div className="flex items-center gap-2 border-b border-ui-border px-5 py-4">
                             <span className="h-3 w-3 rounded-full bg-rose-400" />
                             <span className="h-3 w-3 rounded-full bg-amber-400" />
@@ -352,7 +352,7 @@ export default function SIEMLive() {
             <div className="mt-6 flex flex-wrap gap-3">
                 <button
                     onClick={() => setFullDashboard((prev) => !prev)}
-                    className="rounded-[1.4rem] border border-brand-purple/30 bg-brand-purple/15 px-5 py-3 text-sm font-semibold text-brand-purpleSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-purple/40 hover:bg-brand-purple/20 hover:text-white hover:shadow-glow-purple"
+                    className="rounded-[1.4rem] border border-brand-red/30 bg-brand-red/15 px-5 py-3 text-sm font-semibold text-brand-redSoft backdrop-blur-2xl transition-all duration-300 hover:border-brand-red/40 hover:bg-brand-red/20 hover:text-white hover:shadow-glow-red"
                 >
                     {fullDashboard ? "Quitter full dashboard" : "Mode full dashboard"}
                 </button>

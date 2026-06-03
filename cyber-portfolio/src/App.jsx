@@ -20,11 +20,12 @@ import FakeExploitModal from "./components/cyber/FakeExploitModal";
 import Home from "./pages/Home";
 import CV from "./pages/CV";
 import Projects from "./pages/Projects";
-import PurpleTeamLab from "./pages/PurpleTeamLab";
+import ProjetPhare from "./pages/ProjetPhare";
 import SIEMLive from "./pages/SIEMLive";
 import CVDownload from "./pages/CVDownload";
 import Changelog from "./pages/Changelog";
 import MiniLabIT from "./pages/MiniLabIT";
+import Homelab from "./pages/Homelab";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
@@ -71,10 +72,10 @@ export default function App() {
                 }
               />
               <Route
-                path="/projects/purple-team-lab"
+                path="/projet-phare"
                 element={
                   <PageTransition>
-                    <PurpleTeamLab />
+                    <ProjetPhare />
                   </PageTransition>
                 }
               />
@@ -107,6 +108,14 @@ export default function App() {
                 element={
                   <PageTransition>
                     <MiniLabIT />
+                  </PageTransition>
+                }
+              />
+              <Route
+                path="/homelab"
+                element={
+                  <PageTransition>
+                    <Homelab />
                   </PageTransition>
                 }
               />

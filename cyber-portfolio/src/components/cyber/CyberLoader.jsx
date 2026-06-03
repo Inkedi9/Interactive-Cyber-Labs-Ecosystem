@@ -41,17 +41,17 @@ export default function CyberLoader({ onFinish }) {
     return (
         <div className="fixed inset-0 z-[9999] overflow-hidden bg-obsidian-950 text-ui-text">
             {/* glow background */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(168,85,247,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(6,182,212,0.10),transparent_30%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(230,57,70,0.18),transparent_35%),radial-gradient(circle_at_bottom_right,rgba(6,182,212,0.10),transparent_30%)]" />
 
             {/* grid */}
-            <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(168,85,247,0.22)_1px,transparent_1px),linear-gradient(90deg,rgba(168,85,247,0.22)_1px,transparent_1px)] [background-size:36px_36px]" />
+            <div className="absolute inset-0 opacity-[0.08] [background-image:linear-gradient(rgba(230,57,70,0.22)_1px,transparent_1px),linear-gradient(90deg,rgba(230,57,70,0.22)_1px,transparent_1px)] [background-size:36px_36px]" />
 
             {/* subtle matrix lines */}
             <div className="absolute inset-0 overflow-hidden">
                 {columns.map((col) => (
                     <div
                         key={col}
-                        className="absolute top-[-20%] h-[140%] w-px bg-gradient-to-b from-transparent via-brand-purple/20 to-transparent animate-[matrixFall_7s_linear_infinite]"
+                        className="absolute top-[-20%] h-[140%] w-px bg-gradient-to-b from-transparent via-brand-red/20 to-transparent animate-[matrixFall_7s_linear_infinite]"
                         style={{
                             left: `${(col + 1) * 7.2}%`,
                             animationDelay: `${col * 0.35}s`,
@@ -62,11 +62,11 @@ export default function CyberLoader({ onFinish }) {
 
             {/* subtle scan line */}
             <div className="pointer-events-none absolute inset-0">
-                <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,rgba(168,85,247,0.03)_48%,rgba(6,182,212,0.06)_50%,rgba(168,85,247,0.03)_52%,transparent_100%)] animate-[scanMove_4.2s_linear_infinite]" />
+                <div className="absolute inset-0 bg-[linear-gradient(to_bottom,transparent_0%,rgba(230,57,70,0.03)_48%,rgba(6,182,212,0.06)_50%,rgba(230,57,70,0.03)_52%,transparent_100%)] animate-[scanMove_4.2s_linear_infinite]" />
             </div>
 
             <div className="relative z-10 flex min-h-screen items-center justify-center px-6">
-                <div className="w-full max-w-2xl rounded-[2rem] border border-brand-purple/20 bg-obsidian-950/90 p-8 shadow-[0_0_80px_rgba(168,85,247,0.18)] backdrop-blur-xl">
+                <div className="w-full max-w-2xl rounded-[2rem] border border-brand-red/20 bg-obsidian-950/90 p-8 shadow-[0_0_80px_rgba(230,57,70,0.18)] backdrop-blur-xl">
                     <div className="flex items-center gap-4 border-b border-ui-border pb-5">
                         <img
                             src="/logo-inkedi-cyber.svg"
@@ -75,7 +75,7 @@ export default function CyberLoader({ onFinish }) {
                         />
 
                         <div>
-                            <h1 className="text-lg font-bold tracking-wide text-brand-purpleSoft">
+                            <h1 className="text-lg font-bold tracking-wide text-brand-redSoft">
                                 Inkedi Portfolio - Cybersécurité
                             </h1>
                             <p className="text-xs uppercase tracking-[0.25em] text-ui-muted">
@@ -95,7 +95,7 @@ export default function CyberLoader({ onFinish }) {
                                     key={`${line}-${index}`}
                                     className={
                                         line.includes("[AUTH]")
-                                            ? "text-brand-purpleSoft"
+                                            ? "text-brand-redSoft"
                                             : line.includes("[OK]")
                                                 ? "text-brand-cyanSoft"
                                                 : "text-ui-muted"
@@ -106,8 +106,8 @@ export default function CyberLoader({ onFinish }) {
                             ))}
 
                             {progress < 100 && (
-                                <p className="text-brand-purpleSoft">
-                                    <span className="inline-block h-4 w-[8px] animate-pulse bg-brand-purpleSoft align-middle" />
+                                <p className="text-brand-redSoft">
+                                    <span className="inline-block h-4 w-[8px] animate-pulse bg-brand-redSoft align-middle" />
                                 </p>
                             )}
                         </div>
@@ -121,7 +121,7 @@ export default function CyberLoader({ onFinish }) {
 
                         <div className="h-3 overflow-hidden rounded-full border border-ui-border bg-surface-3">
                             <div
-                                className="h-full rounded-full bg-gradient-to-r from-brand-purple via-brand-purpleSoft to-brand-cyan transition-all duration-200"
+                                className="h-full rounded-full bg-gradient-to-r from-brand-red via-brand-redSoft to-brand-cyan transition-all duration-200"
                                 style={{ width: `${progress}%` }}
                             />
                         </div>

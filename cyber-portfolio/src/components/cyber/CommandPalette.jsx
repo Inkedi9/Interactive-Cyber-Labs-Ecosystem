@@ -394,9 +394,9 @@ export default function CommandPalette() {
                 onClick={openPalette}
                 className="group fixed right-8 top-24 z-[90] inline-flex items-center gap-4 rounded-[1.8rem] border border-white/10 bg-obsidian-900/85 px-5 py-4 text-sm font-semibold text-ui-secondary shadow-[0_16px_50px_rgba(0,0,0,0.34)] backdrop-blur-2xl transition-all duration-300 hover:border-brand-cyan/30 hover:text-white hover:shadow-glow-cyan"
             >
-                <span className="pointer-events-none absolute inset-0 rounded-[1.8rem] bg-[linear-gradient(135deg,rgba(139,92,246,0.08),rgba(34,211,238,0.05),transparent)]" />
+                <span className="pointer-events-none absolute inset-0 rounded-[1.8rem] bg-[linear-gradient(135deg,rgba(230,57,70,0.08),rgba(34,211,238,0.05),transparent)]" />
 
-                <span className="relative z-10 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(34,211,238,0.14),rgba(139,92,246,0.14))] font-mono text-white shadow-glow-cyan transition-all duration-300 group-hover:shadow-glow-purple">
+                <span className="relative z-10 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(34,211,238,0.14),rgba(230,57,70,0.14))] font-mono text-white shadow-glow-cyan transition-all duration-300 group-hover:shadow-glow-red">
                     CMD
                 </span>
 
@@ -424,7 +424,7 @@ export default function CommandPalette() {
                         className={`relative w-full max-w-4xl overflow-hidden rounded-[2.2rem] border border-white/10 bg-obsidian-950/92 shadow-[0_30px_120px_rgba(0,0,0,0.55)] backdrop-blur-2xl transition-all duration-300 ${isOpen ? "translate-y-0 scale-100" : "-translate-y-3 scale-[0.98]"
                             }`}
                     >
-                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(139,92,246,0.14),_rgba(34,211,238,0.08),_transparent_45%)]" />
+                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(230,57,70,0.14),_rgba(34,211,238,0.08),_transparent_45%)]" />
 
                         <div className="relative border-b border-white/10 px-5 py-4">
                             <div className="mb-3 flex items-center gap-2">
@@ -472,7 +472,7 @@ export default function CommandPalette() {
                                 {Object.entries(groupedCommands).map(([groupName, items]) => (
                                     <div key={groupName}>
                                         <div className="mb-3 flex flex-wrap gap-2 px-1">
-                                            <span className="rounded-full border border-brand-purple/20 bg-brand-purple/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-brand-purpleSoft">
+                                            <span className="rounded-full border border-brand-red/20 bg-brand-red/10 px-3 py-1 text-[11px] uppercase tracking-[0.18em] text-brand-redSoft">
                                                 {groupName}
                                             </span>
                                         </div>
@@ -489,14 +489,14 @@ export default function CommandPalette() {
                                                         type="button"
                                                         onClick={() => runCommand(item)}
                                                         className={`flex w-full items-center justify-between rounded-[1.6rem] border px-5 py-4 text-left backdrop-blur-xl transition-all duration-200 ${isSelected
-                                                            ? "translate-x-1 border-brand-purple/25 bg-brand-purple/10 text-white shadow-glow-purple"
+                                                            ? "translate-x-1 border-brand-red/25 bg-brand-red/10 text-white shadow-glow-red"
                                                             : "border-white/10 bg-obsidian-900/70 text-ui-secondary hover:border-brand-cyan/20 hover:text-white hover:shadow-glow-cyan"
                                                             }`}
                                                     >
                                                         <div className="flex items-center gap-4">
                                                             <div
                                                                 className={`flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 ${isSelected
-                                                                    ? "bg-brand-purple/20 text-brand-purpleSoft shadow-glow-purple"
+                                                                    ? "bg-brand-red/20 text-brand-redSoft shadow-glow-red"
                                                                     : "bg-obsidian-900 text-brand-cyanSoft shadow-[0_0_12px_rgba(34,211,238,0.2)]"
                                                                     }`}
                                                             >
@@ -549,7 +549,7 @@ export default function CommandPalette() {
                                 <span>Esc close</span>
                             </div>
 
-                            <div className="font-mono text-brand-purpleSoft">
+                            <div className="font-mono text-brand-redSoft">
                                 Inkedi Command Interface
                             </div>
                         </div>
