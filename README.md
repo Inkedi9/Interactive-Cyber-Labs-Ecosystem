@@ -1,90 +1,39 @@
 # Interactive Cyber Labs Ecosystem
 
-> A collection of interactive cybersecurity platforms, simulations and labs built to explore detection, investigation, infrastructure, threat intelligence and cyber product design.
+> Monorepo contenant mes projets web — portfolios et expérimentations front.
 
 ---
 
-## Overview
+## Projets actifs
 
-**Interactive Cyber Labs Ecosystem** is a portfolio ecosystem regrouping multiple cybersecurity-oriented web platforms and lab projects.
+### inkedi-lab
 
-The goal is not to present isolated projects, but to build a coherent cyber environment where each application explores a specific area of security:
-
-- SOC and detection workflows
-- OSINT investigation
-- Purple Team scenarios
-- Identity and access attack paths
-- Threat intelligence
-- Infrastructure and Active Directory practice
-- Cyber product UI/UX
+Portfolio personnel — AI Systems Builder · Homelab Engineer · Cybersecurity Enthusiast.
+Stack : React 19 · Vite · Tailwind CSS · Framer Motion
+Live : https://inkedi-lab.vercel.app
 
 ---
 
-## Projects
+## Archive
 
-### Interac. Lab Index
+### \_archive/interac-lab-index
 
-A premium cyber simulation platform centralizing multiple cybersecurity labs into a SaaS-like interface.
-
-**Key features:**
-
-- Interactive lab index
-- Command Palette
-- Hidden cyber commands
-- System status simulation
-- Mini Lab IT page
-- Lab detail routes
-- Apple Cyber Pro design system
-
-**Stack:**
-
-- React
-- Vite
-- TailwindCSS
-- Framer Motion
-- Lucide React
-
-**Live Demo:**  
-https://interac-lab-index.vercel.app
-
-**Source:**  
-`./interac-lab-index`
+Ancien portfolio cyber — DA SaaS/Apple dark, cyber simulation platform.
+Dépublié. Conservé comme référence UI.
 
 ---
 
-### Cyber Portfolio
+## Auteur
 
-A cybersecurity-focused portfolio experience designed to present skills, projects and technical identity through an immersive interface.
-
-**Key features:**
-
-- Multi-page portfolio
-- Cyber-themed UI
-- Project showcase
-- Recruiter-friendly presentation
-- Interactive sections
-
-**Stack:**
-
-- React
-- Vite
-- TailwindCSS
-
-**Live Demo:**  
-https://cyber-portfolio-orcin.vercel.app
-
-**Source:**  
-`./cyber-portfolio`
-
----
+GitHub : https://github.com/Inkedi9
 
 ## Repository Structure
 
 ```bash
 Interactive-Cyber-Labs-Ecosystem/
 ├── README.md
-├── interac-lab-index/
-├── cyber-portfolio/
+├── _archive/interac-lab-index/
+├── inkedi-lab/
 └── docs/
     └── screenshots/
 ```
