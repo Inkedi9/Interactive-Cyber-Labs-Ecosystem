@@ -9,6 +9,7 @@ import {
     ScrollText,
     Code2,
     Mail,
+    Terminal,
     TerminalSquare,
     CircleHelp,
     Activity,
@@ -56,15 +57,15 @@ const commands = [
         },
     },
     {
-        id: "purple",
+        id: "jarvinx-page",
         group: "Cyber demos",
-        label: "Purple Team Lab",
-        command: "purple",
-        description: "Ouvrir le projet vitrine Purple Team Lab.",
-        icon: FlaskConical,
-        keywords: ["purple", "purple team", "purple lab", "open purple", "launch purple"],
+        label: "JARVINx — Projet Phare",
+        command: "phare",
+        description: "Ouvrir la page JARVINx — runtime IA autonome local-first en Go.",
+        icon: Activity,
+        keywords: ["phare", "projet phare", "jarvinx page", "open jarvinx", "launch jarvinx"],
         action: ({ navigate, close }) => {
-            navigate("/projects/purple-team-lab");
+            navigate("/projet-phare");
             close();
         },
     },
@@ -129,9 +130,11 @@ const commands = [
         icon: TerminalSquare,
         keywords: ["whoami"],
         terminalResponse: [
-            "cyber portfolio builder",
-            "SOC / Blue Team / Purple Team oriented",
-            "focused on practical demos and premium cyber UI",
+            "inkedi — AI Systems Builder · Homelab Engineer · Cybersecurity Enthusiast",
+            "Stack : Go · TypeScript · React · Docker · Ollama",
+            "Projets actifs : JARVINx · Dark Ops Lab",
+            "Homelab : Linux Mint · Docker · 9 services · GTX 1060",
+            "TryHackMe / HackTheBox — pratique régulière",
         ],
     },
     {
@@ -217,6 +220,57 @@ const commands = [
             window.dispatchEvent(new Event("open-fake-exploit"));
             close();
         },
+    },
+    {
+        id: "jarvinx-status",
+        group: "Terminal",
+        label: "jarvinx status",
+        command: "jarvinx",
+        description: "Afficher le statut du runtime JARVINx.",
+        icon: Activity,
+        keywords: ["jarvinx", "jarvinx status", "status jarvinx", "agent", "runtime"],
+        terminalResponse: [
+            "JARVINx — Runtime vdev",
+            "[OK] Agents : system · alert · docker · file · qdrant",
+            "[OK] Ollama : llama3.1:8b · localhost:11434",
+            "[OK] Notifiers : discord · ntfy",
+            "[OK] Rapport quotidien : 08:00",
+            "Seuils : CPU 75% · RAM 90% · Disk 85%",
+            "Status : runtime local — pas encore exposé publiquement",
+        ],
+    },
+    {
+        id: "homelab-ps",
+        group: "Terminal",
+        label: "homelab ps",
+        command: "homelab",
+        description: "Lister les services Docker actifs du homelab.",
+        icon: TerminalSquare,
+        keywords: ["homelab", "homelab ps", "docker ps", "services", "docker"],
+        terminalResponse: [
+            "root@inkedi:~$ docker ps --format status",
+            "[OK] Portainer       — port 9000",
+            "[OK] Pi-hole         — DNS filtering",
+            "[OK] Nginx PM        — *.home routing",
+            "[OK] Uptime Kuma     — monitoring",
+            "[OK] Homer           — home.home",
+            "[OK] DIUN            — image watcher",
+            "[OK] Ollama          — GPU: GTX 1060",
+            "[OK] Filebrowser     — files.home",
+            "[OK] Vaultwarden     — vault online",
+            "9/9 services running.",
+        ],
+    },
+    {
+        id: "github-term",
+        group: "Terminal",
+        label: "github",
+        command: "github",
+        description: "Ouvrir le profil GitHub.",
+        icon: Code2,
+        keywords: ["github", "profil github", "open github"],
+        terminalResponse: ["Ouverture du profil GitHub..."],
+        onRun: () => window.open("https://github.com/Inkedi9", "_blank", "noopener,noreferrer"),
     },
     {
         id: "clear",
@@ -312,6 +366,7 @@ export default function CommandPalette() {
         if (commandItem.terminalResponse) {
             setTerminalOutput(commandItem.terminalResponse);
             setQuery("");
+            commandItem.onRun?.();
             return;
         }
 
@@ -392,24 +447,11 @@ export default function CommandPalette() {
             <button
                 type="button"
                 onClick={openPalette}
-                className="group fixed right-8 top-24 z-[90] inline-flex items-center gap-4 rounded-[1.8rem] border border-white/10 bg-obsidian-900/85 px-5 py-4 text-sm font-semibold text-ui-secondary shadow-[0_16px_50px_rgba(0,0,0,0.34)] backdrop-blur-2xl transition-all duration-300 hover:border-brand-cyan/30 hover:text-white hover:shadow-glow-cyan"
+                className="fixed bottom-6 left-1/2 z-50 -translate-x-1/2 inline-flex items-center gap-2 rounded-full border border-white/10 bg-obsidian-900/80 px-3 py-2 text-ui-secondary backdrop-blur transition-all duration-300 hover:border-brand-cyan/30 hover:text-white hover:shadow-glow-cyan"
             >
-                <span className="pointer-events-none absolute inset-0 rounded-[1.8rem] bg-[linear-gradient(135deg,rgba(230,57,70,0.08),rgba(34,211,238,0.05),transparent)]" />
-
-                <span className="relative z-10 flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-[linear-gradient(135deg,rgba(34,211,238,0.14),rgba(230,57,70,0.14))] font-mono text-white shadow-glow-cyan transition-all duration-300 group-hover:shadow-glow-red">
-                    CMD
-                </span>
-
-                <div className="relative z-10 flex flex-col items-start leading-none">
-                    <span className="text-base font-semibold text-ui-text">Command</span>
-                    <span className="mt-1 font-mono text-[11px] text-ui-muted">
-                        root@inkedi:~$
-                    </span>
-                </div>
-
-                <span className="relative z-10 rounded-xl border border-white/10 bg-white/[0.03] px-3 py-2 text-[11px] uppercase tracking-[0.18em] text-ui-muted">
-                    Ctrl K
-                </span>
+                <Terminal size={14} />
+                <span className="font-mono text-xs text-brand-emeraldSoft">root@inkedi:~$</span>
+                <span className="font-mono text-xs">⌘K</span>
             </button>
 
             <div
