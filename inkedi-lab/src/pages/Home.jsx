@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import RevealOnScroll from "../components/ui/RevealOnScroll";
 import ScanOverlay from "../components/ui/ScanOverlay";
 import Stats from "../components/cards/Stats";
-import GithubCard from "../components/cards/GithubCard";
+import GithubActivity from "../components/cards/GithubActivity";
 import { HERO_CONTENT, PROJECTS } from "../data/siteData";
 
 const terminalLines = PROJECTS.map(
@@ -197,7 +197,7 @@ export default function Home() {
                 </RevealOnScroll>
             </section>
 
-            <GithubCard />
+            <GithubActivity />
 
             <section className="mt-16">
                 <RevealOnScroll>
