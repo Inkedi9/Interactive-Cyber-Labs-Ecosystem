@@ -17,13 +17,27 @@ No test suite is configured.
 
 **Stack**: React 19 + Vite 8 + TailwindCSS 3 + React Router 7 + Framer Motion + Recharts + Lucide React
 
-This is a cybersecurity portfolio SPA. `src/App.jsx` is the root: it mounts a persistent ambient cyber layer (matrix background, cursor glow, live logs, hacker easter egg) outside the router, then renders pages inside `AnimatePresence` for animated route transitions via `PageTransition`.
+This is a cybersecurity/AI portfolio SPA (v2.0 — AI/Homelab refocus). `src/App.jsx` is the root: it mounts a persistent ambient cyber layer (matrix background, cursor glow, live logs, hacker easter egg) outside the router, then renders pages inside `AnimatePresence` for animated route transitions via `PageTransition`.
+
+### Routes & pages
+
+| Route | Component | Purpose |
+|---|---|---|
+| `/` | `Home` | Hero, featured project, GitHub card |
+| `/cv` | `CV` | Skills, timeline, projects overview |
+| `/projects` | `Projects` | All projects grid |
+| `/projet-phare` | `ProjetPhare` | JARVINx deep-dive |
+| `/homelab` | `Homelab` | Self-hosted infra showcase |
+| `/siem-live` | `SIEMLive` | Interactive SOC demo |
+| `/changelog` | `Changelog` | Build log |
+| `/minilabit` | `MiniLabIT` | Mini IT lab page |
+| `/download-cv` | `CVDownload` | CV download page |
 
 ### Directory layout
 
 ```
 src/
-  pages/          # Full page components (Home, CV, Projects, PurpleTeamLab, SIEMLive, CVDownload, Changelog, MiniLabIT)
+  pages/          # Full page components (see routes table above)
   components/
     layout/       # Navbar, Footer, PageTransition, ScrollToTopButton, ScrollToTopOnRouteChange
     cyber/        # Ambient effects: MatrixBackground, CyberCursorGlow, CyberLogs, CyberLoader, HackerEasterEgg
@@ -59,15 +73,15 @@ To add new assistant topics, add an entry to `assistantIntents` in `src/data/ass
 ### Design system (Tailwind)
 
 Custom tokens defined in `tailwind.config.js`:
-- **Backgrounds**: `obsidian-950/900/850/800` (near-black dark theme)
-- **Brand colors**: `brand-purple`, `brand-purpleSoft`, `brand-cyan`, `brand-cyanSoft`, `brand-emerald`, `brand-emeraldSoft`
+- **Backgrounds**: `obsidian-950/900/850/800` (near-black dark theme), `surface-2/3`
+- **Brand colors**: `brand-red`, `brand-redSoft`, `brand-cyan`, `brand-cyanSoft`, `brand-emerald`, `brand-emeraldSoft`
 - **UI text tokens**: `ui-text`, `ui-secondary`, `ui-muted`, `ui-border`, `ui-borderStrong`
-- **Glow shadows**: `shadow-purpleGlow`, `shadow-cyanGlow`, `shadow-emeraldGlow`
-- Utility classes `shadow-glow-cyan`, `shadow-glow-purple` are used inline via Tailwind arbitrary values
+- **Glow shadows**: `shadow-redGlow`, `shadow-cyanGlow`, `shadow-emeraldGlow`
+- Inline glow utilities use Tailwind arbitrary values, e.g. `hover:shadow-glow-red`, `hover:shadow-glow-cyan`
 
 ### Static content
 
-All portfolio data lives in `src/data/siteData.js`: hero text, personal links, projects list, and skills. Update this file to change displayed content without touching page components.
+All portfolio data lives in `src/data/siteData.js`: hero text, personal links, projects list, and skills. Update this file to change displayed content without touching page components. Note: `PERSONAL_LINKS` in `siteData.js` currently contains placeholder values (email, LinkedIn, cvUrl) that need to be updated before deploying.
 
 ### ESLint
 
