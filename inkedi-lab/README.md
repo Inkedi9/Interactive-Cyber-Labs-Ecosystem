@@ -1,75 +1,47 @@
-# 🛡️ Cybersecurity Portfolio — Inkedi
+# Inkedi-Lab — Portfolio
 
-> ⚡ Interactive cybersecurity portfolio — real projects, simulated environments, and evolving lab.
+> ⚡ AI Systems Builder · Homelab Engineer · Cybersecurity Enthusiast
 
-Bienvenue sur mon portfolio cybersécurité.
+Bienvenue sur mon portfolio personnel.
 
-Ce projet est une web app moderne qui met en avant mon évolution dans le domaine de la cybersécurité à travers :
+Portfolio web personnel — vitrine de mes projets, de mon homelab et de mon évolution technique.
 
-- des projets concrets
-- des simulations interactives
-- un mini lab IT personnel
-- une approche orientée SOC / Blue Team / Purple Team
+🚀 Live : https://inkedi-lab.vercel.app
 
 ---
 
-## 🚀 Live
+## Projets mis en avant
 
-👀 https://cyber-portfolio-orcin.vercel.app
+### JARVINx _(projet phare)_
 
----
+Agent IA autonome local-first écrit en Go.
+Boucle observe-think-act, agents spécialisés (DockerAgent, FileAgent, QdrantAgent), dashboard Next.js.
+→ https://github.com/Inkedi9/JARVINx
 
-## 🧠 Objectif
+### Dark Ops Lab _(on pause)_
 
-Construire un profil cybersécurité solide basé sur :
+Plateforme d'entraînement CTF/cybersécurité — Go + Next.js.
+→ https://github.com/Inkedi9/Dark-Ops-Lab
 
-- la pratique réelle
-- la compréhension des environnements
-- la visualisation claire des concepts
-- une approche orientée terrain
+### Inkora _(standby)_
 
----
+Interface IA custom locale — TypeScript/React + backend agent sur Ollama (GTX 1060).
+→ https://github.com/Inkora-dev/Inkora-AI
 
-## 🧩 Contenu du portfolio
+### Inkyra _(standby)_
 
-### 🟣 Purple Team Lab
+Bot Discord en Go.
+→ https://github.com/inkyra-dev/inkyra-bot
 
-Projet principal du portfolio :
+### Homelab
 
-- simulation d’attaque (Red Team)
-- détection (Blue Team)
-- validation des contrôles (Purple Team)
-- interface cyber immersive
+Infrastructure self-hosted sur Linux Mint — Docker, 9 services actifs :
+Portainer, Pi-hole, Nginx Proxy Manager, Uptime Kuma, Homer, DIUN, Ollama, Filebrowser, Vaultwarden.
+Accès distant via Tailscale. Migration prévue vers ThinkCentre m920q + Proxmox.
 
----
+### SIEM Live _(legacy)_
 
-### 📊 SIEM Live
-
-Mini dashboard SOC :
-
-- alertes simulées
-- logs en temps réel
-- état des capteurs
-- visualisation de la sévérité
-
----
-
-### 🧪 Mini Lab IT
-
-Environnement virtualisé personnel :
-
-- **SRV_DC** → Active Directory / Domain Controller
-- **WIN-USER01** → Poste utilisateur joint au domaine
-- **KALI-OPS** → Machine d’attaque contrôlée
-- **LINUX-01** → Analyse réseau (en évolution)
-
-Fonctionnalités :
-
-- création d’utilisateurs via PowerShell
-- GPO
-- partage réseau
-- simulation d’attaque visuelle
-- logique d’infrastructure réelle
+Dashboard SOC interactif — conservé comme vitrine cyber.
 
 ---
 
@@ -93,10 +65,10 @@ Interface type terminal :
 
 ## 🛠️ Stack technique
 
-- **React**
-- **Vite**
+- **React 19 + Vite**
 - **Tailwind CSS**
 - **Lucide Icons**
+- **Framer Motion**
 - **Recharts**
 
 ---
@@ -105,15 +77,25 @@ Interface type terminal :
 
 - Dark UI (obsidian)
 - accents :
-  - 🟣 purple (core)
+  - 🔴 red (core)
   - 🔵 cyan (interaction)
   - 🟢 emerald (status)
-  - 🔴 red (attack / alert)
+
 - effets :
   - glass / blur
   - glow
   - terminal UI
-  - animations cyber
+  - animations cyber - Framer Motion
+
+---
+
+## Features
+
+- GitHub Activity dynamique (API GitHub publique)
+- Command Palette (Ctrl+K) — commandes `whoami`, `jarvinx status`, `homelab ps`
+- Architecture diagram homelab (Infrastructure Overview)
+- Assistant chatbot client-side
+- Ambient cyber layer (matrix, cursor glow, live logs)
 
 ---
 
@@ -131,13 +113,11 @@ Axes futurs :
 
 ---
 
-## 🎯 Objectif professionnel
+## Roadmap
 
-Recherche :
-
-- alternance / stage cybersécurité
-- SOC Analyst
-- Blue Team / Purple Team
+- [ ] Uptime Kuma widget (après migration ThinkCentre)
+- [ ] JARVINx Live Status — endpoint Go exposé publiquement
+- [ ] Domaine custom
 
 ---
 
@@ -157,22 +137,3 @@ Ce projet est :
 - réalisé dans un environnement contrôlé
 
 Aucune activité malveillante réelle.
-
----
-
-## 🧠 Auteur
-
-Kevin — étudiant cybersécurité  
-Passionné par :
-
-- la détection
-- l’investigation
-- l’OSINT
-- les environnements SOC
-
----
-
-## ⭐ Bonus
-
-Si tu es recruteur ou passionné cyber :
-👉 n’hésite pas à explorer le site et les projets
